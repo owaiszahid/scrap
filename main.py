@@ -3,6 +3,8 @@ from flask import Flask
 import json
 from bs4 import BeautifulSoup
 import requests
+app = Flask(__name__)
+
 
 # @app.route("/", method=['GET', 'POST'])
 def lambda_function(url):
@@ -29,7 +31,8 @@ def lambda_function(url):
             "status": page.status_code,
             "in_stock": False}
         )
-
+if __name__ == "__main__":
+    app.run()
 #print(data_scraping('https://www.samsclub.com/p/5-tier-chrome-shelf-60-x24-x72/prod8250050?xid=plp_product_22'))
 # if __name__ == "__main__":
 #     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
